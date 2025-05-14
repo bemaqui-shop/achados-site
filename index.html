@@ -27,7 +27,7 @@
 
     header {
       background-color: #fff;
-      padding: 25px 20px 15px;
+      padding: 25px 20px 10px;
       text-align: center;
       border-bottom: 1px solid #eee;
     }
@@ -42,6 +42,20 @@
       color: #666;
     }
 
+    .search-box {
+      text-align: center;
+      padding: 15px;
+    }
+
+    .search-box input {
+      padding: 10px;
+      width: 90%;
+      max-width: 400px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 0.95rem;
+    }
+
     .container {
       max-width: 1200px;
       margin: 0 auto;
@@ -50,7 +64,7 @@
 
     .products {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
       gap: 15px;
     }
 
@@ -106,6 +120,10 @@
   <p>Confira nossos produtos especiais</p>
 </header>
 
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="Buscar por nome ou código do produto...">
+</div>
+
 <div class="container">
   <div class="products">
 
@@ -113,7 +131,7 @@
     <div class="product">
       <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-m8drj2kwh5htd2.webp">
       <div class="product-info">
-        <h3>Lixeira Suspensa Multiuso</h3>
+        <h3>Lixeira Suspensa Multiuso - Cód: 08</h3>
         <a href="https://s.shopee.com.br/5fcAwKRvV9">Ver Produto</a>
       </div>
     </div>
@@ -122,7 +140,7 @@
     <div class="product">
       <img src="https://down-br.img.susercontent.com/file/sg-11134201-7ren7-m8diw5lxzt7b1e.webp">
       <div class="product-info">
-        <h3>Sapateira 4/5 andares Organizador</h3>
+        <h3>Sapateira 4/5 andares Organizador - Cód: 07</h3>
         <a href="https://s.shopee.com.br/8pZChqf945">Ver Produto</a>
       </div>
     </div>
@@ -131,7 +149,7 @@
     <div class="product">
       <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-lztwvfuljj1h7b.webp">
       <div class="product-info">
-        <h3>Espremedor Elétrico Laranja</h3>
+        <h3>Espremedor Elétrico Laranja - Cód: 06</h3>
         <a href="https://s.shopee.com.br/4VQDWjxvKR">Ver Produto</a>
       </div>
     </div>
@@ -140,31 +158,49 @@
     <div class="product">
       <img src="https://down-br.img.susercontent.com/file/br-11134207-7r98o-m51xgs9evw4077.webp" alt="Óculos de Sol">
       <div class="product-info">
-        <h3>Kit Canetas Coloridas 24 Cores</h3>
+        <h3>Kit Canetas Coloridas 24 Cores - Cód: 04</h3>
         <a href="https://s.shopee.com.br/6po8He6BJQ">Ver Produto</a>
       </div>
     </div>
-
-<!-- Produto 5 -->
+	
+	<!-- Produto 5 -->
     <div class="product">
       <img src="https://down-br.img.susercontent.com/file/c7fea1fed19c2933273ba3ce4f8599e0@resize_w450_nl.webp" alt="Óculos de Sol">
       <div class="product-info">
-        <h3>X8 Relógio SmartWatch</h3>
+        <h3>X8 Relógio SmartWatch - Cód: 03</h3>
         <a href="https://s.shopee.com.br/5fcAtCan4B">Ver Produto</a>
       </div>
     </div>
-
+	
     <!-- Produto 6 -->
     <div class="product">
       <img src="https://down-br.img.susercontent.com/file/sg-11134201-7rdyw-m172k2vdm9ce0b.webp" alt="Óculos de Sol">
       <div class="product-info">
-        <h3>Rodo de Silicone - Vassoura Mágica</h3>
+        <h3>Rodo de Silicone - Vassoura Mágica - Cód: 09</h3>
         <a href="https://s.shopee.com.br/60F1gPDSnG">Ver Produto</a>
       </div>
     </div>
 
+
   </div>
 </div>
+
+<script>
+  const searchInput = document.getElementById('searchInput');
+  searchInput.addEventListener('input', function () {
+    const filter = searchInput.value.toLowerCase();
+    const products = document.querySelectorAll('.product');
+
+    products.forEach(product => {
+      const text = product.innerText.toLowerCase();
+      if (text.includes(filter)) {
+        product.style.display = 'block';
+      } else {
+        product.style.display = 'none';
+      }
+    });
+  });
+</script>
 
 </body>
 </html>
